@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0794086f660c61a47a305def350c2bd9, type: 3}
+  m_Name: Plataforma 3
+  m_EditorClassIdentifier: 
+  nome: Rochoso
+  mapa: 3
+  plataformas:
+  - {fileID: 519526748978744154, guid: 264231bee262b5440b553ee44135d8d5, type: 3}
+  obstaculos:
+  - {fileID: 452406004621955041, guid: cd2d17354252da047a408db33d2b2b63, type: 3}
+  ObstaculosAlto:
+    left:
+    - {fileID: 9100000, guid: 1b5b6dba931fa334aa119d0a0fe5f96b, type: 2}
+    - {fileID: 9100000, guid: f64e7251feb81f741838af5c462cd460, type: 2}
+    - {fileID: 9100000, guid: b434062b40e03a442b7ab085fb275c57, type: 2}
+    - {fileID: 9100000, guid: 30e4821197f463f40b7332788118d443, type: 2}
+    right:
+    - {fileID: 9100000, guid: ecb1fc546cf62ab4b958db75f41e88da, type: 2}
+    - {fileID: 9100000, guid: 4ba6fb0738d15d641ab769073129b22d, type: 2}
+    - {fileID: 9100000, guid: 8112b9e7a74ab1343b7b493575d16058, type: 2}
