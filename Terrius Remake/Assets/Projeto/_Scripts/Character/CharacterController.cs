@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
-    public static bool dead = false;
+    public static bool dead { get; set; }
     private bool death = false;
 
     void Start()

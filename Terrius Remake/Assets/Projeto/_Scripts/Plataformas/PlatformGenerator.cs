@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class PlatformGenerator : MonoBehaviour
 {
-    public static PlatformGenerator current;
-
-    void Awake() => current = !current ? this : current;
+    public static PlatformGenerator current { get; set; }
 
     [Header("Plataformas")]
     public List<Plataforma> plataformas = new();
 
-    public static int mapa;
+    public static int mapa { get; set; }
 
     [Space]
     [SerializeField] private float minTimer;
@@ -31,9 +30,21 @@ public class PlatformGenerator : MonoBehaviour
     [Header("Interface")]
     [SerializeField] private TextMeshProUGUI biome_name; 
 
+    private CharacterController characterController;
+
+    void Awake()
+    {
+        current = !current ? this : current;
+    }
+    
+    void Start()
+    {
+        characterController = FindFirstObjectByType<CharacterController>();
+    }
+
     public void GeneratorPlatformer()
     {
-        if (!FindFirstObjectByType<CharacterController>().Dead())
+        if (!characterController.Dead())
         {
             if (!spawnPlatform)
             {
@@ -51,7 +62,7 @@ public class PlatformGenerator : MonoBehaviour
     {
         if (!generate)
         {
-            Instantiate(MapaValue(mapa).plataformas[(int)Rand(0, MapaValue(mapa).plataformas.Count)], posSpawn, Quaternion.identity);
+            Instantiate(MapaValue(mapa).plataformas[(int)Rand(0, MapaValue(mapa).plataformas.Count)],posSpawn,Quaternion.identity);
             StartCoroutine(Generator());
         }
     }

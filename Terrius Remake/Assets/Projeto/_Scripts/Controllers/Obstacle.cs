@@ -31,7 +31,7 @@ public class Obstacle : MonoBehaviour
                 if (!dead)
                 {
                     GetComponent<Animator>().SetTrigger("dead");
-                    gameObject.AddComponent<Rigidbody2D>();
+                    GetComponent<Rigidbody2D>().gravityScale = 1f;
                     GetComponent<PolygonCollider2D>().isTrigger = false;
                     dead = true;
                 }

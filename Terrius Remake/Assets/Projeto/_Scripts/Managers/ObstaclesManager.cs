@@ -74,8 +74,16 @@ public class ObstaclesManager : MonoBehaviour
         var obstaculo = PlatformGenerator.current.MapaValue(PlatformGenerator.mapa).obstaculos;
         obstacle.GetComponent<SpriteRenderer>().sprite = obstaculo[Random.Range(0, obstaculo.Count)];
 
-        obstacle.AddComponent<PolygonCollider2D>();
-        obstacle.GetComponent<PolygonCollider2D>().isTrigger = true;
+        AtualizarCollider(obstacle);
+    }
+
+    void AtualizarCollider(GameObject obj)
+    {
+        var pc = obj.GetComponent<PolygonCollider2D>();
+        if (pc != null) Destroy(pc);
+
+        obj.AddComponent<PolygonCollider2D>(); // único ponto de AddComponent
+        obj.GetComponent<PolygonCollider2D>().isTrigger = true;
     }
 
     void CreateObstacleAlto()
@@ -96,12 +104,9 @@ public class ObstaclesManager : MonoBehaviour
             obstacle.GetComponent<SpriteRenderer>().flipX = true;
         }
 
-
-
         obstacle.GetComponent<Animator>().runtimeAnimatorController = obstaculo[Random.Range(0, obstaculo.Count)];
 
-        obstacle.AddComponent<PolygonCollider2D>();
-        obstacle.GetComponent<PolygonCollider2D>().isTrigger = true;
+        AtualizarCollider(obstacle);
     }
 
     float Delay(float min, float max)
