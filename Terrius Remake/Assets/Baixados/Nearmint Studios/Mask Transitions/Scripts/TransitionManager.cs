@@ -8,11 +8,11 @@ namespace MaskTransitions
 
     public class TransitionManager : MonoBehaviour
     {
-        public static TransitionManager Instance;
+        public static TransitionManager Instance { get; set; }
 
         private float screenWidth;
         private float screenHeight;
-        [HideInInspector] public static float maxSize;
+        [HideInInspector] public static float maxSize { get; set; }
         private float individualTransitionTime;
 
         [Header("Transition Properties")]
@@ -25,6 +25,7 @@ namespace MaskTransitions
         [Header("Image Components")]
         [SerializeField] private RectTransform parentMaskRect;
         [SerializeField] private RectTransform maskRect;
+        [SerializeField] private GameObject maskIcon;
         [SerializeField] private RectTransform transitionCanvas;
         [SerializeField] private Image parentMaskImage;
         [SerializeField] private CutoutMaskUI cutoutMask;
@@ -45,6 +46,8 @@ namespace MaskTransitions
             parentMaskImage.sprite = transitionImage;
             cutoutMask.sprite = transitionImage;
             cutoutMask.color = transitionColor;
+
+            maskIcon.SetActive(false);
 
             individualTransitionTime = transitionTime / 2;
 
@@ -100,8 +103,11 @@ namespace MaskTransitions
             float animationTime = totalTime ?? individualTransitionTime;
 
             maskRect.sizeDelta = new Vector2(maxSize, maxSize);
+            // maskIcon.sizeDelta = Vector2.zero;
             parentMaskRect.sizeDelta = Vector2.zero;
             parentMaskRect.rotation = Quaternion.identity;
+
+            maskIcon.SetActive(false);
 
             parentMaskRect.DOSizeDelta(new Vector2(maxSize, maxSize), animationTime).SetEase(Ease.InOutQuad);
             if (rotation)
@@ -142,6 +148,10 @@ namespace MaskTransitions
 
             // Wait for the animation to complete
             yield return animationTween.WaitForCompletion();
+
+            maskIcon.SetActive(true);
+
+            yield return new WaitForSeconds(1f);
 
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
