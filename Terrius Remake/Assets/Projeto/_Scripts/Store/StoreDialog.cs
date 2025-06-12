@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,11 @@ public class StoreDialog : MonoBehaviour
     private int indice;
 
     [SerializeField] private GameObject StoreInterface;
+    public float velocidade = 0.05f;
+    public float pausa = 2.5f;
+    
+    private bool escrevendo = false;
+    private Coroutine traçoCoroutine;
 
     private bool FirstStoreStart;
 
@@ -51,21 +57,33 @@ public class StoreDialog : MonoBehaviour
 
     public void Dialog()
     {
-        StartCoroutine(DialogoChar());
+        StartCoroutine(MostrarDialogo());
     }
 
-    IEnumerator DialogoChar()
+    
+    IEnumerator MostrarDialogo()
     {
         for (int i = 0; i < dialogos.Count; i++)
         {
+            escrevendo = true;
             dialogo_txt.text = "";
-            foreach (Char d in dialogos[indice])
+
+            if (traçoCoroutine != null)
+                StopCoroutine(traçoCoroutine);
+
+            foreach (char d in dialogos[indice])
             {
                 dialogo_txt.text += d;
-                yield return new WaitForSeconds(0.03f);
+                dialogo_txt.text += "|"; // mostra com o traço
+                yield return new WaitForSeconds(velocidade);
+                dialogo_txt.text = dialogo_txt.text.TrimEnd('|'); // remove traço para próxima letra
             }
 
-            yield return new WaitForSeconds(1f);
+            // Após terminar de escrever, inicia piscar traço
+            traçoCoroutine = StartCoroutine(PiscarTraco());
+            escrevendo = false;
+
+            yield return new WaitForSeconds(pausa);
             indice++;
 
             if (i >= dialogos.Count - 1)
@@ -74,6 +92,16 @@ public class StoreDialog : MonoBehaviour
                 StartStore();
             }
         }
+    }
 
+    IEnumerator PiscarTraco()
+    {
+        while (true)
+        {
+            dialogo_txt.text += "|";
+            yield return new WaitForSeconds(0.5f);
+            dialogo_txt.text = dialogo_txt.text.TrimEnd('|');
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }
