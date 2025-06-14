@@ -88,7 +88,7 @@ public class StoreDialog : MonoBehaviour
 
             if (i >= dialogos.Count - 1)
             {
-                DialogInterface.SetActive(false);
+                DialogInterface.GetComponent<Animator>().SetTrigger("exit");
                 StartStore();
             }
         }
