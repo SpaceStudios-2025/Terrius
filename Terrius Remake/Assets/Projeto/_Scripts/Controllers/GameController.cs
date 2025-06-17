@@ -1,35 +1,40 @@
-using System.Text;
-using TMPro;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     public static GameController current { get; set; }
 
-    void Awake() => current = !current ? this : current;
+    void Awake()
+    {
+        current = !current ? this : current;
+
+        Load();
+    }
 
     [HideInInspector] public int Coins;
-    [HideInInspector] public int points;
+    [HideInInspector] public int Points;
+    [HideInInspector] public int PointsLevel;
+    [HideInInspector] public int Nivel;
+    [HideInInspector] public int Diamond; 
 
-    [SerializeField] private TextMeshProUGUI txt_points;
-
-    [HideInInspector] public float point = 0f;
-    private float lastPoints;
-    private StringBuilder stringBuilder = new StringBuilder(16); // tamanho inicial
-    void Update()
+    [HideInInspector] public int PointsLevelMax = 240;
+ 
+    public void Save()
     {
-        point += Time.deltaTime;
-        points = (int)point;
+        PlayerPrefs.SetInt("Coins", Coins);
+        PlayerPrefs.SetInt("Diamond", Diamond);
+        PlayerPrefs.SetInt("Points", Points);
+        PlayerPrefs.SetInt("Nivel", Nivel);
+        PlayerPrefs.SetInt("PointsLevel", PointsLevel);
+    }
 
-        if (points != lastPoints)
-        {
-            stringBuilder.Clear();
-            stringBuilder.Append(points.ToString("0000"));
-            stringBuilder.Append("m");
-
-            txt_points.text = stringBuilder.ToString();
-            lastPoints = points;
-        }
+    public void Load()
+    {
+        Coins = PlayerPrefs.GetInt("Coins", 200);
+        Diamond = PlayerPrefs.GetInt("Diamond", 250);
+        Points = PlayerPrefs.GetInt("Points", 100);
+        Nivel = PlayerPrefs.GetInt("Nivel", 5);
+        PointsLevel = PlayerPrefs.GetInt("PointsLevel", 200);
     }
 
     public void Dead()
