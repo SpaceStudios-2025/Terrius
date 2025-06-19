@@ -7,7 +7,6 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         current = !current ? this : current;
-
         Load();
     }
 
