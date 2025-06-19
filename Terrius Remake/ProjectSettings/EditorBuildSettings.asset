@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Projeto/Scenes/Intro.unity
+    guid: 4a2c0e8d855b4374c8b8aef4bf102f0d
+  - enabled: 1
     path: Assets/Projeto/Scenes/Menu.unity
     guid: ba5c48b24d40f1b4e88ebe03c13d30eb
   - enabled: 1
@@ -14,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Projeto/Scenes/Store.unity
     guid: 9831752336bc43e46bbc4fb4e674b652
+  - enabled: 1
+    path: Assets/Projeto/Scenes/Vestiario.unity
+    guid: 789673a5c2a44a047926339f1390cc8c
   - enabled: 1
     path: Assets/Projeto/Scenes/Level1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
