@@ -2043,13 +2043,20 @@ MonoBehaviour:
   PointsLevelMax: 240
   space: 0
   index: 0
+  genero: 0
   personagens:
-  - name: Jay
-    anim_normal: {fileID: 9100000, guid: 9eeb47ae9c85af745b603dc25db61c6d, type: 2}
-    anim_Space: {fileID: 9100000, guid: c39a15fdced1a1341a8211a16acbe58d, type: 2}
-  - name: Jay Golfe
-    anim_normal: {fileID: 9100000, guid: 29917f641c7d0e440932d439e95ce776, type: 2}
-    anim_Space: {fileID: 9100000, guid: d8811a8e03cd7534d8aa93c49d09650d, type: 2}
+  - name_male: Jay
+    anim_normal_male: {fileID: 9100000, guid: 9eeb47ae9c85af745b603dc25db61c6d, type: 2}
+    anim_Space_male: {fileID: 9100000, guid: c39a15fdced1a1341a8211a16acbe58d, type: 2}
+    name_female: Kaen
+    anim_normal_female: {fileID: 9100000, guid: df5da63e10cf2f745895e3b168a5ec5c, type: 2}
+    anim_Space_female: {fileID: 9100000, guid: 4c2aa58061eccbd42844cd21c840fa06, type: 2}
+  - name_male: Jay Golfe
+    anim_normal_male: {fileID: 9100000, guid: 29917f641c7d0e440932d439e95ce776, type: 2}
+    anim_Space_male: {fileID: 9100000, guid: d8811a8e03cd7534d8aa93c49d09650d, type: 2}
+    name_female: Kaen Rosa
+    anim_normal_female: {fileID: 9100000, guid: 4d6496614bf3ff2479204f61f2abe97b, type: 2}
+    anim_Space_female: {fileID: 9100000, guid: 95de3803166b08b42b7d30bf3c97230f, type: 2}
 --- !u!4 &914056437
 Transform:
   m_ObjectHideFlags: 0
@@ -3816,7 +3823,7 @@ Animator:
   m_GameObject: {fileID: 1527289984}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9eeb47ae9c85af745b603dc25db61c6d, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

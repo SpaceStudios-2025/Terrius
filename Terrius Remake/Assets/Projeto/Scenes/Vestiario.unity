@@ -2806,7 +2806,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7615469613947044187, guid: fd2b4513b0e559f4b9819b3823064aea, type: 3}
+  m_Sprite: {fileID: -8444865956673803034, guid: 3fb413c87aa21ed4080ba7467bdb5538, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2827,7 +2827,7 @@ Animator:
   m_GameObject: {fileID: 1167562078}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f308bbe7d1d218f4ca8eee4d9842efbc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 95de3803166b08b42b7d30bf3c97230f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3341,7 +3341,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1919576661}
         m_TargetAssemblyTypeName: VestiarioController, Assembly-CSharp
-        m_MethodName: ToggleAstronauta
+        m_MethodName: ToggleGenero
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4760,6 +4760,7 @@ MonoBehaviour:
   name_txt: {fileID: 1346985527}
   toggle_astronauta: {fileID: 1982136568}
   btn_selecionar: {fileID: 404517078}
+  toggle_genero: {fileID: 1291064520}
   anim: {fileID: 1167562081}
   anim_shadow: {fileID: 2006329645}
 --- !u!1 &1926113951

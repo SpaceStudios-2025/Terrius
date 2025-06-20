@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool space;
     [HideInInspector] public int index;
 
+    [HideInInspector] public bool genero;
+
     [Header("Personagens")]
     public List<Persons> personagens = new();
 
@@ -50,6 +52,8 @@ public class GameController : MonoBehaviour
 
         space = PlayerPrefs.GetInt("Space", 0) == 1;
         index = PlayerPrefs.GetInt("Person", 0);
+
+        genero = PlayerPrefs.GetInt("Genero", 0) == 1;
     }
 
     public void Dead()
@@ -62,8 +66,14 @@ public class GameController : MonoBehaviour
 [System.Serializable]
 public class Persons
 {
-    public string name;
-    public RuntimeAnimatorController anim_normal;
-    public RuntimeAnimatorController anim_Space;
+    public string name_male;
+    public RuntimeAnimatorController anim_normal_male;
+    public RuntimeAnimatorController anim_Space_male;
+
+    [Space]
+
+    public string name_female;
+    public RuntimeAnimatorController anim_normal_female;
+    public RuntimeAnimatorController anim_Space_female;
 }
 

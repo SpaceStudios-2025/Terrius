@@ -12,6 +12,8 @@ public class LevelsController : MonoBehaviour
 
     public TextMeshProUGUI coins_txt;
 
+    [SerializeField] private GameObject info_planeta;
+
     void Start()
     {
         nivel_img.fillAmount = (float)GameController.current.PointsLevel / GameController.current.PointsLevelMax;
@@ -23,7 +25,7 @@ public class LevelsController : MonoBehaviour
 
     public void Planeta(string planeta)
     {
-        TransitionManager.Instance.LoadLevel(planeta);
+        info_planeta.SetActive(true);
     }
 
     public void Voltar()
@@ -37,4 +39,6 @@ public class LevelsController : MonoBehaviour
             SceneManager.LoadScene("Menu");
         }
     }
+
+    // TransitionManager.Instance.LoadLevel(planeta);
 }

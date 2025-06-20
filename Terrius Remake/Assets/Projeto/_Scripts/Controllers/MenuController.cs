@@ -47,10 +47,10 @@ public class MenuController : MonoBehaviour
         var gc = GameController.current;
         gc.Load();
 
-        if (gc.space) anim_Player.runtimeAnimatorController = gc.personagens[gc.index].anim_Space;
-        else anim_Player.runtimeAnimatorController = gc.personagens[gc.index].anim_normal;
+        if (gc.space) anim_Player.runtimeAnimatorController = gc.genero ? gc.personagens[gc.index].anim_Space_female : gc.personagens[gc.index].anim_Space_male;
+        else anim_Player.runtimeAnimatorController = gc.genero ? gc.personagens[gc.index].anim_normal_female : gc.personagens[gc.index].anim_normal_male;
 
-        name_txt.text = gc.personagens[gc.index].name;
+        name_txt.text = gc.genero ? gc.personagens[gc.index].name_female : gc.personagens[gc.index].name_male;
 
         anim_Player.SetInteger("transition", 2);
     }

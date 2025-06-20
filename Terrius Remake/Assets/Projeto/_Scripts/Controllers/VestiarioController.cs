@@ -16,24 +16,34 @@ public class VestiarioController : MonoBehaviour
     [SerializeField] private Toggle toggle_astronauta;
     [SerializeField] private Button btn_selecionar;
 
+    [SerializeField] private Toggle toggle_genero;
+
     [Header("Player")]
     [SerializeField] private Animator anim;
     [SerializeField] private Animator anim_shadow;
 
-
     private int indice = 0;
     private bool space;
 
+    public bool genero; //True = female, False = male
+
+    GameController gc;
+
     void Start()
     {
-        GameController.current.Load();
-        toggle_astronauta.isOn = GameController.current.space;
+        gc = GameController.current;
 
-        coins_Txt.text = GameController.current.Coins.ToString("D5");
-        diamonds_Txt.text = GameController.current.Diamond.ToString("D4");
+        gc.Load();
+        toggle_astronauta.isOn = gc.space;
+        toggle_genero.isOn = gc.genero;
 
-        indice = GameController.current.index;
-        space = GameController.current.space;
+        coins_Txt.text = gc.Coins.ToString("D5");
+        diamonds_Txt.text = gc.Diamond.ToString("D4");
+
+        indice = gc.index;
+        space = gc.space;
+
+        genero = gc.genero;
 
         SelectButton();
         OtherPlayer();
@@ -53,50 +63,61 @@ public class VestiarioController : MonoBehaviour
 
     public void ToggleAstronauta()
     {
+        space = toggle_astronauta.isOn;
+
+        if (space) Space();
+        else Normal();
+
+        PlayerPrefs.SetInt("Space", space ? 1 : 0);
+    }
+
+    public void ToggleGenero()
+    {
+        genero = toggle_genero.isOn;
+
         if (toggle_astronauta.isOn) Space();
         else Normal();
+
+        SelectButton();
     }
 
     public void Space()
     {
         PersonSpace(indice);
-        name_txt.text = GameController.current.personagens[indice].name;
-
-        PlayerPrefs.SetInt("Space", 1);
-        space = true;
+        name_txt.text = genero ? gc.personagens[indice].name_female : gc.personagens[indice].name_male;
     }
 
     public void Normal()
     {
         PersonNormal(indice);
-        name_txt.text = GameController.current.personagens[indice].name;
-
-        PlayerPrefs.SetInt("Space", 0);
-        space = false;
+        name_txt.text = genero ? gc.personagens[indice].name_female : gc.personagens[indice].name_male;
     }
 
     void PersonNormal(int index)
     {
-        anim.runtimeAnimatorController = GameController.current.personagens[index].anim_normal;
-        anim_shadow.runtimeAnimatorController = GameController.current.personagens[index].anim_normal;
+        anim.runtimeAnimatorController = genero ? gc.personagens[index].anim_normal_female : gc.personagens[index].anim_normal_male;
+        anim_shadow.runtimeAnimatorController = genero ? gc.personagens[index].anim_normal_female : gc.personagens[index].anim_normal_male;
 
-        anim.SetInteger("transition", 2);
-        anim_shadow.SetInteger("transition", 2);
+        Anim();
     }
 
     void PersonSpace(int index)
     {
-        anim.runtimeAnimatorController = GameController.current.personagens[index].anim_Space;
-        anim_shadow.runtimeAnimatorController = GameController.current.personagens[index].anim_Space;
+        anim.runtimeAnimatorController = genero ? gc.personagens[index].anim_Space_female : gc.personagens[index].anim_Space_male;
+        anim_shadow.runtimeAnimatorController = genero ? gc.personagens[index].anim_Space_female : gc.personagens[index].anim_Space_male;
 
+        Anim();
+    }
+
+    void Anim()
+    {
         anim.SetInteger("transition", 2);
         anim_shadow.SetInteger("transition", 2);
     }
 
-
     public void RightButton()
     {
-        if (indice < GameController.current.personagens.Count - 1)
+        if (indice < gc.personagens.Count - 1)
         {
             indice++;
             OtherPlayer();
@@ -119,7 +140,7 @@ public class VestiarioController : MonoBehaviour
         }
         else
         {
-            indice = GameController.current.personagens.Count - 1;
+            indice = gc.personagens.Count - 1;
             OtherPlayer();
         }
 
@@ -128,10 +149,11 @@ public class VestiarioController : MonoBehaviour
 
     public void Selecionar()
     {
-        if (indice != GameController.current.index)
+        if (indice != gc.index)
         {
             PlayerPrefs.SetInt("Person", indice);
-            GameController.current.Load();
+            PlayerPrefs.SetInt("Genero", genero ? 1 : 0);
+            gc.Load();
 
             InteractableSelect();
         }
@@ -139,8 +161,8 @@ public class VestiarioController : MonoBehaviour
 
     void SelectButton()
     {
-        if (indice == GameController.current.index) InteractableSelect();
-        else ActiveSelect();
+        if (indice == gc.index && gc.genero == genero) InteractableSelect();
+        else if (indice != gc.index || gc.genero != genero) ActiveSelect();
     }
 
     void InteractableSelect()
@@ -155,3 +177,5 @@ public class VestiarioController : MonoBehaviour
         btn_selecionar.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "SELECIONAR";
     }
 }
+
+// ||
