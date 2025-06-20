@@ -15,6 +15,10 @@ public class MenuController : MonoBehaviour
     [Space]
     [SerializeField] private Image points_img;
 
+    [Space]
+    [SerializeField] private Animator anim_Player;
+    [SerializeField] private TextMeshProUGUI name_txt;
+
     private int pointsMax;
     private int points;
 
@@ -39,6 +43,16 @@ public class MenuController : MonoBehaviour
         StartCoroutine(Diamond());
         StartCoroutine(PointsLevel());
         StartCoroutine(Nivels());
+
+        var gc = GameController.current;
+        gc.Load();
+
+        if (gc.space) anim_Player.runtimeAnimatorController = gc.personagens[gc.index].anim_Space;
+        else anim_Player.runtimeAnimatorController = gc.personagens[gc.index].anim_normal;
+
+        name_txt.text = gc.personagens[gc.index].name;
+
+        anim_Player.SetInteger("transition", 2);
     }
 
     IEnumerator Coins()

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -6,7 +7,13 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        current = !current ? this : current;
+        if (current == null)
+        {
+            current = this;
+            DontDestroyOnLoad(this);
+        }
+        else Destroy(gameObject);
+
         Load();
     }
 
@@ -14,10 +21,16 @@ public class GameController : MonoBehaviour
     [HideInInspector] public int Points;
     [HideInInspector] public int PointsLevel;
     [HideInInspector] public int Nivel;
-    [HideInInspector] public int Diamond; 
+    [HideInInspector] public int Diamond;
 
     [HideInInspector] public int PointsLevelMax = 240;
- 
+
+    [HideInInspector] public bool space;
+    [HideInInspector] public int index;
+
+    [Header("Personagens")]
+    public List<Persons> personagens = new();
+
     public void Save()
     {
         PlayerPrefs.SetInt("Coins", Coins);
@@ -34,6 +47,9 @@ public class GameController : MonoBehaviour
         Points = PlayerPrefs.GetInt("Points", 100);
         Nivel = PlayerPrefs.GetInt("Nivel", 5);
         PointsLevel = PlayerPrefs.GetInt("PointsLevel", 200);
+
+        space = PlayerPrefs.GetInt("Space", 0) == 1;
+        index = PlayerPrefs.GetInt("Person", 0);
     }
 
     public void Dead()
@@ -42,3 +58,12 @@ public class GameController : MonoBehaviour
         FindFirstObjectByType<CharacterController>().Dead();
     }
 }
+
+[System.Serializable]
+public class Persons
+{
+    public string name;
+    public RuntimeAnimatorController anim_normal;
+    public RuntimeAnimatorController anim_Space;
+}
+

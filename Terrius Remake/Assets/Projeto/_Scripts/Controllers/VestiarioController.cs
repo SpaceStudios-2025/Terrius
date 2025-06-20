@@ -14,9 +14,7 @@ public class VestiarioController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI name_txt;
 
     [SerializeField] private Toggle toggle_astronauta;
-
-    [Header("Personagens")]
-    public List<Persons> personagens = new();
+    [SerializeField] private Button btn_selecionar;
 
     [Header("Player")]
     [SerializeField] private Animator anim;
@@ -24,13 +22,27 @@ public class VestiarioController : MonoBehaviour
 
 
     private int indice = 0;
+    private bool space;
 
     void Start()
     {
+        GameController.current.Load();
+        toggle_astronauta.isOn = GameController.current.space;
+
         coins_Txt.text = GameController.current.Coins.ToString("D5");
         diamonds_Txt.text = GameController.current.Diamond.ToString("D4");
 
-        Normal();
+        indice = GameController.current.index;
+        space = GameController.current.space;
+
+        SelectButton();
+        OtherPlayer();
+    }
+
+    public void OtherPlayer()
+    {
+        if (space) Space();
+        else Normal();
     }
 
     public void Voltar_Btn()
@@ -48,32 +60,98 @@ public class VestiarioController : MonoBehaviour
     public void Space()
     {
         PersonSpace(indice);
-        name_txt.text = personagens[indice].name;
+        name_txt.text = GameController.current.personagens[indice].name;
+
+        PlayerPrefs.SetInt("Space", 1);
+        space = true;
     }
 
     public void Normal()
     {
         PersonNormal(indice);
-        name_txt.text = personagens[indice].name;
+        name_txt.text = GameController.current.personagens[indice].name;
+
+        PlayerPrefs.SetInt("Space", 0);
+        space = false;
     }
 
     void PersonNormal(int index)
     {
-        anim.runtimeAnimatorController = personagens[index].anim_normal;
-        anim_shadow.runtimeAnimatorController = personagens[index].anim_normal;
+        anim.runtimeAnimatorController = GameController.current.personagens[index].anim_normal;
+        anim_shadow.runtimeAnimatorController = GameController.current.personagens[index].anim_normal;
+
+        anim.SetInteger("transition", 2);
+        anim_shadow.SetInteger("transition", 2);
     }
 
     void PersonSpace(int index)
     {
-        anim.runtimeAnimatorController = personagens[index].anim_Space;
-        anim_shadow.runtimeAnimatorController = personagens[index].anim_Space;
-    }
-}
+        anim.runtimeAnimatorController = GameController.current.personagens[index].anim_Space;
+        anim_shadow.runtimeAnimatorController = GameController.current.personagens[index].anim_Space;
 
-[System.Serializable]
-public class Persons
-{
-    public string name;
-    public RuntimeAnimatorController anim_normal;
-    public RuntimeAnimatorController anim_Space;
+        anim.SetInteger("transition", 2);
+        anim_shadow.SetInteger("transition", 2);
+    }
+
+
+    public void RightButton()
+    {
+        if (indice < GameController.current.personagens.Count - 1)
+        {
+            indice++;
+            OtherPlayer();
+        }
+        else
+        {
+            indice = 0;
+            OtherPlayer();
+        }
+
+        SelectButton();
+    }
+
+    public void LeftButton()
+    {
+        if (indice > 0)
+        {
+            indice--;
+            OtherPlayer();
+        }
+        else
+        {
+            indice = GameController.current.personagens.Count - 1;
+            OtherPlayer();
+        }
+
+        SelectButton();
+    }
+
+    public void Selecionar()
+    {
+        if (indice != GameController.current.index)
+        {
+            PlayerPrefs.SetInt("Person", indice);
+            GameController.current.Load();
+
+            InteractableSelect();
+        }
+    }
+
+    void SelectButton()
+    {
+        if (indice == GameController.current.index) InteractableSelect();
+        else ActiveSelect();
+    }
+
+    void InteractableSelect()
+    {
+        btn_selecionar.interactable = false;
+        btn_selecionar.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "SELECIONADO";
+    }
+
+    void ActiveSelect()
+    {
+        btn_selecionar.interactable = true;
+        btn_selecionar.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "SELECIONAR";
+    }
 }

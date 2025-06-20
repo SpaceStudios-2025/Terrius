@@ -661,8 +661,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 126.599976, y: -110}
-  m_SizeDelta: {x: 138.44, y: 89.52002}
+  m_AnchoredPosition: {x: 106, y: -107}
+  m_SizeDelta: {x: 138.44, y: 136.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &169968983
 MonoBehaviour:
@@ -740,7 +740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2047613651344142497, guid: e869268efd7d38745a52967381cef55f, type: 3}
+  m_Sprite: {fileID: -7090641179508505894, guid: a92c5df7eef6ddc4ba91ad5dd2892af9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -939,81 +939,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208574843}
   m_CullTransparentMesh: 1
---- !u!1 &267861900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 267861901}
-  - component: {fileID: 267861903}
-  - component: {fileID: 267861902}
-  m_Layer: 5
-  m_Name: Galaxia (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &267861901
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267861900}
-  m_LocalRotation: {x: -0, y: -0, z: -0.10835943, w: 0.9941118}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2001784052}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -12.442}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 484.99988, y: 635}
-  m_SizeDelta: {x: -1050.9001, y: -3280.6}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &267861902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267861900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4e8663587311d34d8e7571152210253, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &267861903
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267861900}
-  m_CullTransparentMesh: 1
 --- !u!1 &291506990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1025,7 @@ GameObject:
   - component: {fileID: 308490858}
   - component: {fileID: 308490860}
   - component: {fileID: 308490859}
+  - component: {fileID: 308490861}
   m_Layer: 5
   m_Name: asteroid (1)
   m_TagString: Untagged
@@ -1123,8 +1049,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 431.99915, y: -1482.8999}
-  m_SizeDelta: {x: -907.2999, y: -3090.9995}
+  m_AnchoredPosition: {x: 523.85, y: -1483}
+  m_SizeDelta: {x: -973.2, y: -3374.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &308490859
 MonoBehaviour:
@@ -1164,6 +1090,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308490857}
   m_CullTransparentMesh: 1
+--- !u!114 &308490861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308490857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 45
+  moveFrequency: 0.4
+  angleAmount: 35
+  swingSpeed: 0.4
 --- !u!1 &310802155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,6 +1932,7 @@ GameObject:
   - component: {fileID: 492513368}
   - component: {fileID: 492513370}
   - component: {fileID: 492513369}
+  - component: {fileID: 492513371}
   m_Layer: 5
   m_Name: asteroid (4)
   m_TagString: Untagged
@@ -2013,7 +1956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.95}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -440.99994, y: 887}
+  m_AnchoredPosition: {x: 50, y: 1659.6}
   m_SizeDelta: {x: -951.8, y: -3319.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492513369
@@ -2054,6 +1997,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492513367}
   m_CullTransparentMesh: 1
+--- !u!114 &492513371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492513367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 45
+  moveFrequency: 0.4
+  angleAmount: 35
+  swingSpeed: 0.4
 --- !u!1 &495369652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2482,11 +2441,11 @@ RectTransform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2120400323}
+  m_Father: {fileID: 1006365809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -179.04999, y: 1618}
+  m_AnchoredPosition: {x: 0, y: 149.5}
   m_SizeDelta: {x: 643.3, y: 591}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630064810
@@ -2536,6 +2495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642474079}
+  - component: {fileID: 642474080}
   m_Layer: 5
   m_Name: Asteroid Terra
   m_TagString: Untagged
@@ -2564,6 +2524,22 @@ RectTransform:
   m_AnchoredPosition: {x: 32, y: -993.91095}
   m_SizeDelta: {x: 166.20941, y: 219.75818}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &642474080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642474078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 20
+  moveFrequency: 0.5
+  angleAmount: 10
+  swingSpeed: 0.4
 --- !u!1 &658624346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,6 +2836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745784888}
+  - component: {fileID: 745784889}
   m_Layer: 5
   m_Name: Asteroid Noctyra
   m_TagString: Untagged
@@ -2888,6 +2865,22 @@ RectTransform:
   m_AnchoredPosition: {x: 173.60004, y: 1242.0891}
   m_SizeDelta: {x: 166.20941, y: 219.75818}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &745784889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745784887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 20
+  moveFrequency: 0.5
+  angleAmount: 10
+  swingSpeed: 0.4
 --- !u!1 &751655762
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,81 +3222,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829096172}
   m_CullTransparentMesh: 1
---- !u!1 &838174973
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 838174974}
-  - component: {fileID: 838174976}
-  - component: {fileID: 838174975}
-  m_Layer: 5
-  m_Name: Galaxia (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &838174974
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838174973}
-  m_LocalRotation: {x: -0, y: -0, z: -0.10835943, w: 0.9941118}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2001784052}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -12.442}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 65.99994, y: -1257}
-  m_SizeDelta: {x: -1050.9001, y: -3280.6}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &838174975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838174973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a5fba74603a33f348a6995d5ee8fe366, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &838174976
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838174973}
-  m_CullTransparentMesh: 1
 --- !u!1 &873893220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,81 +3342,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035156, y: 73.770874}
   m_SizeDelta: {x: 166.05, y: 72.147}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &885903976
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 885903977}
-  - component: {fileID: 885903979}
-  - component: {fileID: 885903978}
-  m_Layer: 5
-  m_Name: Galaxia
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &885903977
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885903976}
-  m_LocalRotation: {x: -0, y: -0, z: -0.4779111, w: 0.8784082}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2001784052}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -57.098}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -516.99994, y: -109}
-  m_SizeDelta: {x: -1050.9001, y: -3280.6}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &885903978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885903976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71ae5bfc6c340b446a6658c0d46650a6, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &885903979
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885903976}
-  m_CullTransparentMesh: 1
 --- !u!1 &895319988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,6 +3429,7 @@ GameObject:
   - component: {fileID: 904859138}
   - component: {fileID: 904859137}
   - component: {fileID: 904859139}
+  - component: {fileID: 904859140}
   m_Layer: 5
   m_Name: Virelia
   m_TagString: Untagged
@@ -3706,6 +3550,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &904859140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904859135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 15
+  moveFrequency: 0.2
+  angleAmount: 10
+  swingSpeed: 0.3
 --- !u!1 &921684370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3867,6 +3727,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1907530746}
+  - {fileID: 2052076140}
   - {fileID: 1479121791}
   - {fileID: 1870363696}
   m_Father: {fileID: 2120400323}
@@ -3924,6 +3785,7 @@ GameObject:
   - component: {fileID: 962225146}
   - component: {fileID: 962225148}
   - component: {fileID: 962225147}
+  - component: {fileID: 962225149}
   m_Layer: 5
   m_Name: asteroid (3)
   m_TagString: Untagged
@@ -3947,7 +3809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.95}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -244.00073, y: 283.1001}
+  m_AnchoredPosition: {x: -391.44995, y: 682.75024}
   m_SizeDelta: {x: -971.8999, y: -3185.0996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962225147
@@ -3988,6 +3850,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962225145}
   m_CullTransparentMesh: 1
+--- !u!114 &962225149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962225145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 45
+  moveFrequency: 0.4
+  angleAmount: 35
+  swingSpeed: 0.4
 --- !u!1 &968897527
 GameObject:
   m_ObjectHideFlags: 0
@@ -4000,6 +3878,7 @@ GameObject:
   - component: {fileID: 968897530}
   - component: {fileID: 968897529}
   - component: {fileID: 968897531}
+  - component: {fileID: 968897532}
   m_Layer: 5
   m_Name: Ignaris
   m_TagString: Untagged
@@ -4120,6 +3999,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &968897532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968897527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 15
+  moveFrequency: 0.2
+  angleAmount: 10
+  swingSpeed: 0.3
 --- !u!1 &983729111
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,6 +4026,7 @@ GameObject:
   - component: {fileID: 983729112}
   - component: {fileID: 983729114}
   - component: {fileID: 983729113}
+  - component: {fileID: 983729115}
   m_Layer: 5
   m_Name: asteroid (2)
   m_TagString: Untagged
@@ -4154,8 +4050,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 27.394}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -103.04999, y: -703.05005}
-  m_SizeDelta: {x: -971.8999, y: -3185.0996}
+  m_AnchoredPosition: {x: 427.4, y: 105}
+  m_SizeDelta: {x: -1063.9, y: -3439.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983729113
 MonoBehaviour:
@@ -4195,6 +4091,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983729111}
   m_CullTransparentMesh: 1
+--- !u!114 &983729115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983729111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 45
+  moveFrequency: 0.4
+  angleAmount: 35
+  swingSpeed: 0.4
 --- !u!1 &984721909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4204,6 +4116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984721910}
+  - component: {fileID: 984721911}
   m_Layer: 5
   m_Name: Asteroid Virelia
   m_TagString: Untagged
@@ -4232,6 +4145,22 @@ RectTransform:
   m_AnchoredPosition: {x: 13, y: -228.91095}
   m_SizeDelta: {x: 166.20941, y: 219.75812}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &984721911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984721909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 20
+  moveFrequency: 0.5
+  angleAmount: 10
+  swingSpeed: 0.4
 --- !u!1 &1006365808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4261,6 +4190,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1148210616}
+  - {fileID: 630064809}
   - {fileID: 1069305014}
   - {fileID: 1295333911}
   m_Father: {fileID: 2120400323}
@@ -5200,6 +5130,9 @@ MonoBehaviour:
   Nivel: 0
   Diamond: 0
   PointsLevelMax: 240
+  space: 0
+  index: 0
+  personagens: []
 --- !u!4 &1209890862
 Transform:
   m_ObjectHideFlags: 0
@@ -5377,6 +5310,7 @@ GameObject:
   - component: {fileID: 1295333913}
   - component: {fileID: 1295333912}
   - component: {fileID: 1295333914}
+  - component: {fileID: 1295333915}
   m_Layer: 5
   m_Name: Nihileon
   m_TagString: Untagged
@@ -5497,6 +5431,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1295333915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295333910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 15
+  moveFrequency: 0.2
+  angleAmount: 10
+  swingSpeed: 0.3
 --- !u!1 &1312962761
 GameObject:
   m_ObjectHideFlags: 0
@@ -5506,6 +5456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1312962762}
+  - component: {fileID: 1312962763}
   m_Layer: 5
   m_Name: Asteroid Ignaris
   m_TagString: Untagged
@@ -5534,6 +5485,22 @@ RectTransform:
   m_AnchoredPosition: {x: -38, y: 560.08905}
   m_SizeDelta: {x: 166.20941, y: 219.75815}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1312962763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312962761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 20
+  moveFrequency: 0.5
+  angleAmount: 10
+  swingSpeed: 0.4
 --- !u!1 &1323766686
 GameObject:
   m_ObjectHideFlags: 0
@@ -6353,6 +6320,7 @@ GameObject:
   - component: {fileID: 1455340003}
   - component: {fileID: 1455340005}
   - component: {fileID: 1455340004}
+  - component: {fileID: 1455340006}
   m_Layer: 5
   m_Name: asteroid
   m_TagString: Untagged
@@ -6376,8 +6344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -543.8007, y: -813.69995}
-  m_SizeDelta: {x: -1098.7, y: -3297.5996}
+  m_AnchoredPosition: {x: -367.55, y: -1000}
+  m_SizeDelta: {x: -1098.7, y: -3488.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455340004
 MonoBehaviour:
@@ -6417,6 +6385,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455340002}
   m_CullTransparentMesh: 1
+--- !u!114 &1455340006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455340002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 45
+  moveFrequency: 0.4
+  angleAmount: 35
+  swingSpeed: 0.4
 --- !u!1 &1458676993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6655,8 +6639,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000026703, y: 2.9}
-  m_SizeDelta: {x: 87.68, y: 60.05}
+  m_AnchoredPosition: {x: 0.000005722, y: -0.000058174}
+  m_SizeDelta: {x: 115.14, y: 78.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559985406
 MonoBehaviour:
@@ -6678,9 +6662,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2539754135675676361, guid: 01d090be1f6bdec40ac2ef9e86e666ff, type: 3}
+  m_Sprite: {fileID: 2353642582857040929, guid: df24dafd912b74541a2f6333895a2ff5, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -7984,81 +7968,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 73.770874}
   m_SizeDelta: {x: 166.05, y: 72.147}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1856023925
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1856023926}
-  - component: {fileID: 1856023928}
-  - component: {fileID: 1856023927}
-  m_Layer: 5
-  m_Name: Galaxia (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1856023926
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856023925}
-  m_LocalRotation: {x: -0, y: -0, z: 0.76570845, w: -0.6431878}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2001784052}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -99.94}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -391.44995, y: 1494}
-  m_SizeDelta: {x: -1050.9001, y: -3280.6}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1856023927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856023925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 222b1dd0723b87645a778abbabd85943, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1856023928
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856023925}
-  m_CullTransparentMesh: 1
 --- !u!1 &1870363695
 GameObject:
   m_ObjectHideFlags: 0
@@ -8071,6 +7980,7 @@ GameObject:
   - component: {fileID: 1870363698}
   - component: {fileID: 1870363697}
   - component: {fileID: 1870363699}
+  - component: {fileID: 1870363700}
   m_Layer: 5
   m_Name: Terra
   m_TagString: Untagged
@@ -8191,6 +8101,22 @@ MonoBehaviour:
           m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1870363700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870363695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2670cae91d0454fa5e51b572a24279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 15
+  moveFrequency: 0.2
+  angleAmount: 10
+  swingSpeed: 0.3
 --- !u!1 &1893869181
 GameObject:
   m_ObjectHideFlags: 0
@@ -8920,10 +8846,6 @@ RectTransform:
   - {fileID: 983729112}
   - {fileID: 962225146}
   - {fileID: 492513368}
-  - {fileID: 885903977}
-  - {fileID: 838174974}
-  - {fileID: 267861901}
-  - {fileID: 1856023926}
   m_Father: {fileID: 2120400323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9036,11 +8958,11 @@ RectTransform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2120400323}
+  m_Father: {fileID: 936890354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -357, y: -1297.0001}
+  m_AnchoredPosition: {x: 12, y: 99.20007}
   m_SizeDelta: {x: 643.3, y: 591}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2052076141
@@ -9427,17 +9349,15 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2001784052}
-  - {fileID: 2052076140}
-  - {fileID: 630064809}
   - {fileID: 642474079}
   - {fileID: 936890354}
   - {fileID: 984721910}
   - {fileID: 1769162662}
   - {fileID: 1312962762}
   - {fileID: 310802156}
+  - {fileID: 1006365809}
   - {fileID: 745784888}
   - {fileID: 944329839}
-  - {fileID: 1006365809}
   m_Father: {fileID: 1049943062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
