@@ -7,7 +7,7 @@ public class PlanetaController : MonoBehaviour
 
     [Header("Interface")]
     [SerializeField] private TextMeshProUGUI points_txt;
-    private int points;
+    [HideInInspector] public int points;
     private float ponto;
 
     void Start()

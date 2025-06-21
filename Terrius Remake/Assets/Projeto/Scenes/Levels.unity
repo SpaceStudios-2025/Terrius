@@ -1246,6 +1246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 310802156}
+  - component: {fileID: 310802157}
   m_Layer: 5
   m_Name: Planeta Ignaris
   m_TagString: Untagged
@@ -1275,6 +1276,23 @@ RectTransform:
   m_AnchoredPosition: {x: -325, y: 102.75008}
   m_SizeDelta: {x: 330.90002, y: 468.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &310802157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310802155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Planeta Ignaris
+  describe: 
+  objetivo: 
+  scene: 
+  block: 1
 --- !u!1 &334905966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,10 +2357,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 642474081}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2479,7 +2497,7 @@ GameObject:
   - component: {fileID: 588053377}
   - component: {fileID: 588053376}
   m_Layer: 5
-  m_Name: Nome_do_Planeta (1)
+  m_Name: Describe_planeta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2782,6 +2800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 642474079}
   - component: {fileID: 642474080}
+  - component: {fileID: 642474081}
   m_Layer: 5
   m_Name: Asteroid Terra
   m_TagString: Untagged
@@ -2826,6 +2845,23 @@ MonoBehaviour:
   moveFrequency: 0.5
   angleAmount: 10
   swingSpeed: 0.4
+--- !u!114 &642474081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642474078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Asteroid b01-3
+  describe: 
+  objetivo: 
+  scene: 
+  block: 1
 --- !u!1 &658624346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3259,6 +3295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 745784888}
   - component: {fileID: 745784889}
+  - component: {fileID: 745784890}
   m_Layer: 5
   m_Name: Asteroid Noctyra
   m_TagString: Untagged
@@ -3303,6 +3340,23 @@ MonoBehaviour:
   moveFrequency: 0.5
   angleAmount: 10
   swingSpeed: 0.4
+--- !u!114 &745784890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745784887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Asteroid 34cv4
+  describe: 
+  objetivo: 
+  scene: 
+  block: 1
 --- !u!1 &751655762
 GameObject:
   m_ObjectHideFlags: 0
@@ -4036,10 +4090,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 1769162663}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4184,10 +4238,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 984721912}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4205,6 +4259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 936890354}
+  - component: {fileID: 936890355}
   m_Layer: 5
   m_Name: Planeta Terra
   m_TagString: Untagged
@@ -4235,6 +4290,26 @@ RectTransform:
   m_AnchoredPosition: {x: -369, y: -1396.2002}
   m_SizeDelta: {x: 330.90002, y: 474.40002}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &936890355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936890353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Planeta Terra
+  describe: " Tudo come\xE7a na Terra, o planeta azul \u2014 aparentemente comum,
+    mas que guarda segredos enterrados sob  camadas de tempo e sil\xEAncio. Jay,
+    um adolescente introspectivo e curioso, come\xE7a a sentir que h\xE1 algo de 
+    errado com o mundo ao seu redor. Pessoas desaparecem sem explica\xE7\xE3o. "
+  objetivo: Derrotar Umbryon
+  scene: Level1
+  block: 0
 --- !u!1 &944329838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4244,6 +4319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944329839}
+  - component: {fileID: 944329840}
   m_Layer: 5
   m_Name: Planeta Noctyra
   m_TagString: Untagged
@@ -4272,6 +4348,23 @@ RectTransform:
   m_AnchoredPosition: {x: 292.44995, y: 901.49994}
   m_SizeDelta: {x: 330.90002, y: 469.79993}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &944329840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944329838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Planeta Noctyra
+  describe: 
+  objetivo: 
+  scene: 
+  block: 1
 --- !u!1 &962225145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4485,10 +4578,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 310802157}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4615,6 +4708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 984721910}
   - component: {fileID: 984721911}
+  - component: {fileID: 984721912}
   m_Layer: 5
   m_Name: Asteroid Virelia
   m_TagString: Untagged
@@ -4659,6 +4753,23 @@ MonoBehaviour:
   moveFrequency: 0.5
   angleAmount: 10
   swingSpeed: 0.4
+--- !u!114 &984721912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984721909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Asteroid b-34v
+  describe: 
+  objetivo: 
+  scene: 
+  block: 1
 --- !u!1 &1006365808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,6 +4779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1006365809}
+  - component: {fileID: 1006365810}
   m_Layer: 5
   m_Name: Planeta Nihileon
   m_TagString: Untagged
@@ -4698,6 +4810,23 @@ RectTransform:
   m_AnchoredPosition: {x: -179.05, y: 1468.5001}
   m_SizeDelta: {x: 330.9, y: 469.8003}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1006365810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006365808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Planeta Nihileon
+  describe: 
+  objetivo: 
+  scene: 
+  block: 1
 --- !u!1 &1029108979
 GameObject:
   m_ObjectHideFlags: 0
@@ -6147,10 +6276,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 1006365810}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6185,6 +6314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312962762}
   - component: {fileID: 1312962763}
+  - component: {fileID: 1312962764}
   m_Layer: 5
   m_Name: Asteroid Ignaris
   m_TagString: Untagged
@@ -6229,6 +6359,23 @@ MonoBehaviour:
   moveFrequency: 0.5
   angleAmount: 10
   swingSpeed: 0.4
+--- !u!114 &1312962764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312962761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Asteroid ig-45d
+  describe: 
+  objetivo: 
+  scene: 
+  block: 1
 --- !u!1 &1323766686
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,10 +7021,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 1312962764}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7178,6 +7325,10 @@ MonoBehaviour:
   level_txt: {fileID: 1738894937}
   coins_txt: {fileID: 1818919654}
   info_planeta: {fileID: 884569426}
+  nome_planeta_txt: {fileID: 2094983686}
+  describe_planeta_txt: {fileID: 588053376}
+  objetivo_txt: {fileID: 1825870329}
+  btn_viajar: {fileID: 1161694213}
 --- !u!1 &1479121790
 GameObject:
   m_ObjectHideFlags: 0
@@ -8409,10 +8560,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 944329840}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8430,6 +8581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1769162662}
+  - component: {fileID: 1769162663}
   m_Layer: 5
   m_Name: Planeta Virelia
   m_TagString: Untagged
@@ -8461,6 +8613,23 @@ RectTransform:
   m_AnchoredPosition: {x: 292.45, y: -588.45}
   m_SizeDelta: {x: 330.90002, y: 469.90002}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1769162663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769162661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead472a9e686c94fbcfdc48ff563740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: Planeta de Virelia
+  describe: 
+  objetivo: 
+  scene: 
+  block: 1
 --- !u!1 &1779603811
 GameObject:
   m_ObjectHideFlags: 0
@@ -9120,10 +9289,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 936890355}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9268,10 +9437,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1458676995}
-        m_TargetAssemblyTypeName: LevelsController, Assembly-CSharp
-        m_MethodName: Planeta
-        m_Mode: 5
+      - m_Target: {fileID: 745784890}
+        m_TargetAssemblyTypeName: Planeta, Assembly-CSharp
+        m_MethodName: OpenInterface
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
