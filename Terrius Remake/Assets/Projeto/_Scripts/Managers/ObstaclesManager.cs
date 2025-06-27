@@ -5,6 +5,8 @@ using UnityEngine;
 public class ObstaclesManager : MonoBehaviour
 {
     [Header("Manager")]
+    [SerializeField] private float[] posicoesY = { -0.323f, -0.627f, -0.946f };
+
     [SerializeField] private float delay_min = 1f;
     [SerializeField] private float delay_max = 3f;
 
@@ -18,8 +20,7 @@ public class ObstaclesManager : MonoBehaviour
     [SerializeField] private GameObject obstaculo_alto;
 
     [Header("Obstaculos Alto")]
-    [SerializeField] private float y_min;
-    [SerializeField] private float y_max;
+    [SerializeField] private float[] posicoesY_Alto = { -0.323f, -0.627f, -0.946f };
 
     [SerializeField] private float delay_alto_min = 1.5f;
     [SerializeField] private float delay_alto_max = 4f;
@@ -62,14 +63,17 @@ public class ObstaclesManager : MonoBehaviour
         if (!FindFirstObjectByType<CharacterController>().Dead())
         {
             if (spawn) StartCoroutine(SpawnObstacles());
-
             if (spawnAlto) StartCoroutine(SpawnObstaclesAlto());
         }
     }
 
     void CreateObstacle()
     {
-        var obstacle = Instantiate(obj_obstacle, transform.position, Quaternion.identity);
+        int y = Random.Range(0, posicoesY.Length);
+        var pos = new Vector3(transform.position.x, posicoesY[y]);
+
+        var obstacle = Instantiate(obj_obstacle, pos, Quaternion.identity);
+        obstacle.GetComponent<SpriteRenderer>().sortingOrder = y + 1;
 
         var obstaculo = PlatformGenerator.current.MapaValue(PlatformGenerator.mapa).obstaculos;
         obstacle.GetComponent<SpriteRenderer>().sprite = obstaculo[Random.Range(0, obstaculo.Count)];
@@ -88,22 +92,13 @@ public class ObstaclesManager : MonoBehaviour
 
     void CreateObstacleAlto()
     {
-        var pos = new Vector3(transform.position.x, Random.Range(y_min, y_max));
+        int y = Random.Range(0, posicoesY_Alto.Length);
+        var pos = new Vector3(transform.position.x, posicoesY_Alto[y]);
 
         var obstacle = Instantiate(obstaculo_alto, pos, Quaternion.identity);
+        obstacle.GetComponent<SpriteRenderer>().sortingOrder = y + 1;
 
-        var rand = Random.Range(0, 2);
-        List<RuntimeAnimatorController> obstaculo;
-        if (rand == 1)
-        {
-            obstaculo = PlatformGenerator.current.MapaValue(PlatformGenerator.mapa).ObstaculosAlto.left;
-        }
-        else
-        {
-            obstaculo = PlatformGenerator.current.MapaValue(PlatformGenerator.mapa).ObstaculosAlto.right;
-            obstacle.GetComponent<SpriteRenderer>().flipX = true;
-        }
-
+        var obstaculo = PlatformGenerator.current.MapaValue(PlatformGenerator.mapa).ObstaculosAlto;
         obstacle.GetComponent<Animator>().runtimeAnimatorController = obstaculo[Random.Range(0, obstaculo.Count)];
 
         AtualizarCollider(obstacle);
@@ -113,11 +108,4 @@ public class ObstaclesManager : MonoBehaviour
     {
         return Random.Range(min, max);
     }
-}
-
-[System.Serializable]
-public class ObstaculoAlto
-{
-    public List<RuntimeAnimatorController> left;
-    public List<RuntimeAnimatorController> right;
 }

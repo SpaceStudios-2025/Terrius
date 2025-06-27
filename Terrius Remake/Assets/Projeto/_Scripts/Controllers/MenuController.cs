@@ -59,7 +59,7 @@ public class MenuController : MonoBehaviour
     {
         for (coins = 0; coins <= GameController.current.Coins; coins++)
         {
-            coins_txt.text = coins.ToString("D4");
+            coins_txt.text = coins.ToString("D5");
             yield return new WaitForSeconds(.005f);
         }
     }
@@ -68,7 +68,7 @@ public class MenuController : MonoBehaviour
     {
         for (diamond = 0; diamond <= GameController.current.Diamond; diamond++)
         {
-            diamond_txt.text = diamond.ToString("D4");
+            diamond_txt.text = diamond.ToString("D5");
             yield return new WaitForSeconds(.005f);
         }
     }

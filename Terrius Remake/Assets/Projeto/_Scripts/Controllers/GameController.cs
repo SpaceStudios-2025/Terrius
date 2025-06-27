@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,13 +16,15 @@ public class GameController : MonoBehaviour
         else Destroy(gameObject);
 
         Load();
+        LoadPersons();
     }
-
     [HideInInspector] public int Coins;
     [HideInInspector] public int Points;
     [HideInInspector] public int PointsLevel;
     [HideInInspector] public int Nivel;
     [HideInInspector] public int Diamond;
+
+    private bool delayCompra;
 
     [HideInInspector] public int PointsLevelMax = 240;
 
@@ -32,6 +35,19 @@ public class GameController : MonoBehaviour
 
     [Header("Personagens")]
     public List<Persons> personagens = new();
+    public RuntimeAnimatorController anim_silhouette;
+
+
+    void LoadPersons()
+    {
+        foreach (var person in personagens)
+        {
+            if (PlayerPrefs.HasKey(person.id + "desblock"))
+            {
+                person.blocked = false;
+            }
+        }
+    }
 
     public void Save()
     {
@@ -61,11 +77,61 @@ public class GameController : MonoBehaviour
         CharacterController.dead = true;
         FindFirstObjectByType<CharacterController>().Dead();
     }
+
+    #region Payment
+    public bool PaymentMoney(int value)
+    {
+        if (Coins >= value && !delayCompra)
+        {
+            if (!delayCompra)
+            {
+                Coins -= value;
+                PlayerPrefs.SetInt("Coins", Coins);
+
+                StartCoroutine(PaymentDelay());
+
+                return true;
+            }
+            return false;
+        }
+        else return false;
+    }
+
+    public bool PaymentDiamond(int value)
+    {
+        if (Diamond >= value)
+        {
+            if (!delayCompra)
+            {
+                Diamond -= value;
+                PlayerPrefs.SetInt("Diamond", Diamond);
+
+                StartCoroutine(PaymentDelay());
+
+                return true;
+            }
+
+            return false;
+        }
+        else return false;
+    }
+
+    IEnumerator PaymentDelay()
+    {
+        delayCompra = true;
+        yield return new WaitForSeconds(1f);
+        delayCompra = false;
+    }
+    #endregion
 }
 
 [System.Serializable]
 public class Persons
 {
+    [Header("Identificador")]
+    public string id;
+    [Space]
+
     public string name_male;
     public RuntimeAnimatorController anim_normal_male;
     public RuntimeAnimatorController anim_Space_male;
@@ -75,5 +141,18 @@ public class Persons
     public string name_female;
     public RuntimeAnimatorController anim_normal_female;
     public RuntimeAnimatorController anim_Space_female;
+
+    [Space]
+    public bool blocked;
+    public bool silhouette;
+
+    [Space]
+    [Header("Buy")]
+    public Payment payment;
+    public int value;
 }
 
+public enum Payment: int{
+    diamond = 0,
+    money = 1,
+}

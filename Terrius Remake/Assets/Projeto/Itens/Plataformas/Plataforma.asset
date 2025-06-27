@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nome: "Ver\xE3o"
   mapa: 0
+  nome_dead_bioma: "Morte no Ver\xE3o"
   plataformas:
   - {fileID: 5416029791495355749, guid: a1ec4a26423eeb54095043a198e93d54, type: 3}
   obstaculos:
@@ -22,11 +23,7 @@ MonoBehaviour:
   - {fileID: 6655038124901407684, guid: 5c5c0fefdbf2c5c40a1477b7d3d46206, type: 3}
   - {fileID: -7119015898346813046, guid: 4bdaa72e554f4bc4bb4c92d58eaa79d1, type: 3}
   ObstaculosAlto:
-    left:
-    - {fileID: 9100000, guid: c23867cc84117e5418c04efa0b677e14, type: 2}
-    - {fileID: 9100000, guid: 1b5b6dba931fa334aa119d0a0fe5f96b, type: 2}
-    - {fileID: 9100000, guid: b434062b40e03a442b7ab085fb275c57, type: 2}
-    - {fileID: 9100000, guid: 30e4821197f463f40b7332788118d443, type: 2}
-    right:
-    - {fileID: 9100000, guid: 4ba6fb0738d15d641ab769073129b22d, type: 2}
-    - {fileID: 9100000, guid: a846d17e0aebc73438002a397c06f480, type: 2}
+  - {fileID: 9100000, guid: c23867cc84117e5418c04efa0b677e14, type: 2}
+  - {fileID: 9100000, guid: 1b5b6dba931fa334aa119d0a0fe5f96b, type: 2}
+  - {fileID: 9100000, guid: 8112b9e7a74ab1343b7b493575d16058, type: 2}
+  - {fileID: 9100000, guid: f78c9e4b80b84554bb0f1982dd6d2b85, type: 2}

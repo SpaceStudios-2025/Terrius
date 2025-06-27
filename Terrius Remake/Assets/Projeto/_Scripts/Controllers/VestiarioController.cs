@@ -22,10 +22,22 @@ public class VestiarioController : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private Animator anim_shadow;
 
+    [Header("Comprar Button")]
+    [SerializeField] private Sprite btn_comprar_sprite;
+    [SerializeField] private Sprite btn_normal_male_sprite;
+    [SerializeField] private Sprite btn_normal_famale_sprite;
+
+    [Header("Payment")]
+    [SerializeField] private GameObject obj_payment;
+    [SerializeField] private Image icon_payment;
+    [SerializeField] private TextMeshProUGUI value_payment;
+
+    public List<Sprite> paymentIcon = new();
+
     private int indice = 0;
     private bool space;
 
-    public bool genero; //True = female, False = male
+    private bool genero; //True = female, False = male
 
     GameController gc;
 
@@ -34,25 +46,24 @@ public class VestiarioController : MonoBehaviour
         gc = GameController.current;
 
         gc.Load();
+        Load();
+
+        SelectButton();
+        Person();
+    }
+
+    void Load()
+    {
         toggle_astronauta.isOn = gc.space;
         toggle_genero.isOn = gc.genero;
 
         coins_Txt.text = gc.Coins.ToString("D5");
-        diamonds_Txt.text = gc.Diamond.ToString("D4");
+        diamonds_Txt.text = gc.Diamond.ToString("D5");
 
         indice = gc.index;
         space = gc.space;
 
         genero = gc.genero;
-
-        SelectButton();
-        OtherPlayer();
-    }
-
-    public void OtherPlayer()
-    {
-        if (space) Space();
-        else Normal();
     }
 
     public void Voltar_Btn()
@@ -61,52 +72,59 @@ public class VestiarioController : MonoBehaviour
         else SceneManager.LoadScene("Menu");
     }
 
+    #region Astronauta e Genero
     public void ToggleAstronauta()
     {
         space = toggle_astronauta.isOn;
-
-        if (space) Space();
-        else Normal();
-
+        Person();
         PlayerPrefs.SetInt("Space", space ? 1 : 0);
     }
 
     public void ToggleGenero()
     {
         genero = toggle_genero.isOn;
-
-        if (toggle_astronauta.isOn) Space();
-        else Normal();
-
+        Person();
         SelectButton();
     }
 
-    public void Space()
+    void Person()
     {
-        PersonSpace(indice);
-        name_txt.text = genero ? gc.personagens[indice].name_female : gc.personagens[indice].name_male;
-    }
+        if (!Player().silhouette)
+        {
+            anim.runtimeAnimatorController = GenAst();
+            anim_shadow.runtimeAnimatorController = GenAst();
 
-    public void Normal()
-    {
-        PersonNormal(indice);
-        name_txt.text = genero ? gc.personagens[indice].name_female : gc.personagens[indice].name_male;
-    }
+            name_txt.text = genero ? Player().name_female : Player().name_male;
+        }
+        else
+        {
+            anim.runtimeAnimatorController = gc.anim_silhouette;
+            anim_shadow.runtimeAnimatorController = gc.anim_silhouette;
 
-    void PersonNormal(int index)
-    {
-        anim.runtimeAnimatorController = genero ? gc.personagens[index].anim_normal_female : gc.personagens[index].anim_normal_male;
-        anim_shadow.runtimeAnimatorController = genero ? gc.personagens[index].anim_normal_female : gc.personagens[index].anim_normal_male;
+            name_txt.text = "Desconhecido!";
+        }
+
 
         Anim();
     }
 
-    void PersonSpace(int index)
+    Persons Player()
     {
-        anim.runtimeAnimatorController = genero ? gc.personagens[index].anim_Space_female : gc.personagens[index].anim_Space_male;
-        anim_shadow.runtimeAnimatorController = genero ? gc.personagens[index].anim_Space_female : gc.personagens[index].anim_Space_male;
+        return gc.personagens[indice];
+    }
 
-        Anim();
+    RuntimeAnimatorController GenAst()
+    {
+        if (genero)
+        {
+            if (space) return Player().anim_Space_female;
+            else return Player().anim_normal_female;
+        }
+        else
+        {
+            if (space) return Player().anim_Space_male;
+            else return Player().anim_normal_male;
+        }
     }
 
     void Anim()
@@ -120,12 +138,12 @@ public class VestiarioController : MonoBehaviour
         if (indice < gc.personagens.Count - 1)
         {
             indice++;
-            OtherPlayer();
+            Person();
         }
         else
         {
             indice = 0;
-            OtherPlayer();
+            Person();
         }
 
         SelectButton();
@@ -136,33 +154,79 @@ public class VestiarioController : MonoBehaviour
         if (indice > 0)
         {
             indice--;
-            OtherPlayer();
+            Person();
         }
         else
         {
             indice = gc.personagens.Count - 1;
-            OtherPlayer();
+            Person();
         }
 
         SelectButton();
     }
 
+    #endregion
+
     public void Selecionar()
     {
-        if (indice != gc.index)
+        if (!Player().blocked)
         {
-            PlayerPrefs.SetInt("Person", indice);
-            PlayerPrefs.SetInt("Genero", genero ? 1 : 0);
-            gc.Load();
+            if (indice != gc.index || genero != gc.genero)
+            {
+                PlayerPrefs.SetInt("Person", indice);
+                PlayerPrefs.SetInt("Genero", genero ? 1 : 0);
+                gc.Load();
 
-            InteractableSelect();
+                InteractableSelect();
+            }
         }
+        else
+        {
+            if (!Player().silhouette)
+            {
+                if (Player().payment == 0)
+                {
+                    if (gc.PaymentDiamond(Player().value))
+                        CompraRealizada();
+                    else print("Compra não realizada!");
+                }
+                else if (Player().payment == (Payment)1)
+                {
+                    if (gc.PaymentDiamond(Player().value))
+                        CompraRealizada();
+                    else print("Compra não realizada!");
+                }
+            }
+        }
+    }
+
+    void CompraRealizada()
+    {
+        print("Compra Realizada Com Sucesso!");
+        Player().blocked = false;
+        PlayerPrefs.SetInt(Player().id + "desblock", 1);
+        SelectButton();
     }
 
     void SelectButton()
     {
-        if (indice == gc.index && gc.genero == genero) InteractableSelect();
-        else if (indice != gc.index || gc.genero != genero) ActiveSelect();
+        if (!Player().blocked)
+        {
+            if (indice == gc.index && gc.genero == genero) InteractableSelect();
+            else if (indice != gc.index || gc.genero != genero) ActiveSelect();
+        }
+        else
+        {
+            icon_payment.sprite = paymentIcon[(int)Player().payment];
+            value_payment.text = Player().value.ToString("D4");
+
+            DesblockSelect();
+        }
+
+        toggle_astronauta.interactable = !Player().silhouette;
+        toggle_genero.interactable = !Player().silhouette;
+        
+        obj_payment.SetActive(Player().blocked);
     }
 
     void InteractableSelect()
@@ -174,7 +238,20 @@ public class VestiarioController : MonoBehaviour
     void ActiveSelect()
     {
         btn_selecionar.interactable = true;
+        
+        if (!genero)
+            btn_selecionar.GetComponent<Image>().sprite = btn_normal_male_sprite;
+        else
+            btn_selecionar.GetComponent<Image>().sprite = btn_normal_famale_sprite;
+
         btn_selecionar.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "SELECIONAR";
+    }
+
+    void DesblockSelect()
+    {
+        btn_selecionar.interactable = true;
+        btn_selecionar.GetComponent<Image>().sprite = btn_comprar_sprite;
+        btn_selecionar.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "DESBLOQUEAR";
     }
 }
 

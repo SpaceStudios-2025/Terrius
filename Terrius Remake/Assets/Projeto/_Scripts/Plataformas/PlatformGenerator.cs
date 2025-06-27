@@ -25,10 +25,13 @@ public class PlatformGenerator : MonoBehaviour
     public float posDestroy;
     public float posInitSpawn;
 
+    private Vector3 positionStart = new Vector3(-2.93412828f, -0.389999986f, 0);
+
     private bool generate;
 
     [Header("Interface")]
-    [SerializeField] private TextMeshProUGUI biome_name; 
+    public static string Biome_name_dead { get; set; }
+    [SerializeField] private TextMeshProUGUI txt_biome_name; 
 
     private CharacterController characterController;
 
@@ -36,10 +39,11 @@ public class PlatformGenerator : MonoBehaviour
     {
         current = !current ? this : current;
     }
-    
+
     void Start()
     {
         characterController = FindFirstObjectByType<CharacterController>();
+        GenerateStartPlatform();
     }
 
     public void GeneratorPlatformer()
@@ -56,6 +60,15 @@ public class PlatformGenerator : MonoBehaviour
 
             if (spawnPlatform) { Platform(); }
         }
+    }
+
+    void GenerateStartPlatform()
+    {
+        mapa = (int)Rand(0, plataformas.Count);
+        timerPlatform = Rand(minTimer, maxTimer);
+
+        StartCoroutine(Spawn());
+        Instantiate(MapaValue(mapa).plataformas[(int)Rand(0, MapaValue(mapa).plataformas.Count)],positionStart,Quaternion.identity);
     }
 
     void Platform()
@@ -92,7 +105,8 @@ public class PlatformGenerator : MonoBehaviour
         {
             if (plat.mapa == value)
             {
-                biome_name.text = plat.nome;
+                Biome_name_dead = plat.nome_dead_bioma;
+                txt_biome_name.text = plat.nome;
                 return plat;
             }
         }

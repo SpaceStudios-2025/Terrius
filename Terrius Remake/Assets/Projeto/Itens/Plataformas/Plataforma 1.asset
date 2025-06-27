@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nome: Inverno
   mapa: 1
+  nome_dead_bioma: Morte no Inverno
   plataformas:
   - {fileID: 5123400998300113535, guid: 6e4c5e30d9a67494dbcd2d50fac8e5ed, type: 3}
   obstaculos:
   - {fileID: 5829533487066609061, guid: 6da94d88edfa5844a82ebb8b2739002e, type: 3}
   ObstaculosAlto:
-    left:
-    - {fileID: 9100000, guid: c23867cc84117e5418c04efa0b677e14, type: 2}
-    - {fileID: 9100000, guid: b434062b40e03a442b7ab085fb275c57, type: 2}
-    right:
-    - {fileID: 9100000, guid: c1bb4e97fcc1fad4bb9a15ae356936ac, type: 2}
-    - {fileID: 9100000, guid: f78c9e4b80b84554bb0f1982dd6d2b85, type: 2}
+  - {fileID: 9100000, guid: c23867cc84117e5418c04efa0b677e14, type: 2}
+  - {fileID: 9100000, guid: c1bb4e97fcc1fad4bb9a15ae356936ac, type: 2}
+  - {fileID: 9100000, guid: b434062b40e03a442b7ab085fb275c57, type: 2}
+  - {fileID: 9100000, guid: a846d17e0aebc73438002a397c06f480, type: 2}

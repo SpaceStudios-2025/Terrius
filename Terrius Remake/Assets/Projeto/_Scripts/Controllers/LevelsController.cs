@@ -11,6 +11,7 @@ public class LevelsController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI level_txt;
 
     [SerializeField] private TextMeshProUGUI coins_txt;
+    [SerializeField] private TextMeshProUGUI diamonds_txt;
 
     [SerializeField] private GameObject info_planeta;
 
@@ -29,7 +30,8 @@ public class LevelsController : MonoBehaviour
         nivel_txt.text = GameController.current.Nivel.ToString();
         level_txt.text = GameController.current.PointsLevel.ToString("D2") + "/" + GameController.current.PointsLevelMax;
 
-        coins_txt.text = GameController.current.Coins.ToString("D4");
+        coins_txt.text = GameController.current.Coins.ToString("D5");
+        diamonds_txt.text = GameController.current.Diamond.ToString("D5");
     }
 
     public void Planeta()

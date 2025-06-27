@@ -14,15 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nome: Primavera
   mapa: 2
+  nome_dead_bioma: Morte na Primavera
   plataformas:
   - {fileID: 5833066778519791172, guid: fe83a9ffed35f5840b6adf715272ba6f, type: 3}
   obstaculos:
   - {fileID: 6401772595928237291, guid: 6f6d2226cf88b924c9cfd273318cf490, type: 3}
   ObstaculosAlto:
-    left:
-    - {fileID: 9100000, guid: c23867cc84117e5418c04efa0b677e14, type: 2}
-    - {fileID: 9100000, guid: b434062b40e03a442b7ab085fb275c57, type: 2}
-    - {fileID: 9100000, guid: 1b5b6dba931fa334aa119d0a0fe5f96b, type: 2}
-    right:
-    - {fileID: 9100000, guid: 8112b9e7a74ab1343b7b493575d16058, type: 2}
-    - {fileID: 9100000, guid: 4ba6fb0738d15d641ab769073129b22d, type: 2}
+  - {fileID: 9100000, guid: 8112b9e7a74ab1343b7b493575d16058, type: 2}
+  - {fileID: 9100000, guid: 30e4821197f463f40b7332788118d443, type: 2}
+  - {fileID: 9100000, guid: 4ba6fb0738d15d641ab769073129b22d, type: 2}
+  - {fileID: 9100000, guid: f64e7251feb81f741838af5c462cd460, type: 2}
