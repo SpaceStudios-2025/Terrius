@@ -14,8 +14,7 @@ public class StoreDialog : MonoBehaviour
     [SerializeField] private GameObject StoreInterface;
     public float velocidade = 0.05f;
     public float pausa = 2.5f;
-    
-    private bool escrevendo = false;
+
     private Coroutine traçoCoroutine;
 
     private bool FirstStoreStart;
@@ -65,7 +64,6 @@ public class StoreDialog : MonoBehaviour
     {
         for (int i = 0; i < dialogos.Count; i++)
         {
-            escrevendo = true;
             dialogo_txt.text = "";
 
             if (traçoCoroutine != null)
@@ -81,7 +79,6 @@ public class StoreDialog : MonoBehaviour
 
             // Após terminar de escrever, inicia piscar traço
             traçoCoroutine = StartCoroutine(PiscarTraco());
-            escrevendo = false;
 
             yield return new WaitForSeconds(pausa);
             indice++;

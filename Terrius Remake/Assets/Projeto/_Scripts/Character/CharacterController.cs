@@ -5,7 +5,7 @@ public class CharacterController : MonoBehaviour
     [Header("Trilha")]
     [SerializeField] private float[] posicoesY = { -0.323f, -0.627f, -0.946f };
     [SerializeField] private float velocidadeTrocaTrilha = 5f;
-    private int trilhaAtual = 1;
+    public int trilhaAtual = 1;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -21,26 +21,34 @@ public class CharacterController : MonoBehaviour
     private bool isGround = true;
 
     [Header("Morte")]
-    public static bool dead { get; set; }
     private bool death;
+
+    [Header("Shadow")]
+    [SerializeField] private GameObject shadow_obj;
+    private float yShadow;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        dead = false; death = false; isGround = true;
+        death = false; isGround = true;
 
         trilhaAtual = 1;
         posicaoYAlvo = posicoesY[trilhaAtual];
+
+        GameController.trilha = trilhaAtual;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) Jump();
+        if (PlanetaController.gamestart)
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) Jump();
 
-        if (Input.GetKeyDown(KeyCode.DownArrow)) Down();
-        else if (Input.GetKeyDown(KeyCode.UpArrow)) Up();
+            if (Input.GetKeyDown(KeyCode.DownArrow)) Down();
+            else if (Input.GetKeyDown(KeyCode.UpArrow)) Up();
+        }
     }
 
     public void Down()
@@ -65,42 +73,49 @@ public class CharacterController : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().sortingOrder = trilhaAtual + 1;
         posicaoYAlvo = posicoesY[trilhaAtual];
+
+        GameController.trilha = trilhaAtual;
     }
 
     void FixedUpdate()
     {
-        Vector2 pos = rb.position;
-
-        // Se está pulando, simula gravidade
-        if (pulando)
+        if (PlanetaController.gamestart)
         {
-            velocidadeVertical += gravidade * Time.fixedDeltaTime;
-            pos.y += velocidadeVertical * Time.fixedDeltaTime;
+            Vector2 pos = rb.position;
 
-            // Chegou ou passou da trilha, então aterrissou
-            if (pos.y <= posicaoYAlvo)
+            // Se está pulando, simula gravidade
+            if (pulando)
             {
-                pos.y = posicaoYAlvo;
-                velocidadeVertical = 0f;
-                pulando = false;
-                isGround = true;
+                velocidadeVertical += gravidade * Time.fixedDeltaTime;
+                pos.y += velocidadeVertical * Time.fixedDeltaTime;
 
-                anim.SetTrigger("endJump");
+                shadow_obj.transform.position = new Vector3(shadow_obj.transform.position.x, yShadow);
+
+                // Chegou ou passou da trilha, então aterrissou
+                if (pos.y <= posicaoYAlvo)
+                {
+                    pos.y = posicaoYAlvo;
+                    velocidadeVertical = 0f;
+                    pulando = false;
+                    isGround = true;
+
+                    anim.SetTrigger("endJump");
+                }
             }
-        }
-        else
-        {
-            // Se não está pulando, suaviza a troca de trilha
-            pos.y = Mathf.Lerp(pos.y, posicaoYAlvo, velocidadeTrocaTrilha * Time.fixedDeltaTime);
-        }
+            else
+            {
+                // Se não está pulando, suaviza a troca de trilha
+                pos.y = Mathf.Lerp(pos.y, posicaoYAlvo, velocidadeTrocaTrilha * Time.fixedDeltaTime);
+            }
 
-        rb.MovePosition(pos);
+            rb.MovePosition(pos);
+        }
     }
 
 
-    public bool Dead()
+    public void Dead()
     {
-        if (dead)
+        if (GameController.dead)
         {
             if (!death)
             {
@@ -110,8 +125,6 @@ public class CharacterController : MonoBehaviour
                 death = true;
             }
         }
-
-        return dead;
     }
 
     void Jump()
@@ -120,9 +133,11 @@ public class CharacterController : MonoBehaviour
         {
             anim.SetTrigger("jump");
 
+            yShadow = posicoesY[trilhaAtual] + 0.085f;
+
             velocidadeVertical = forcaPulo;
             pulando = true;
             isGround = false;
-        }    
+        }
     }
 }

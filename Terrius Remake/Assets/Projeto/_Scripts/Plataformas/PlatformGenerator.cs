@@ -48,7 +48,7 @@ public class PlatformGenerator : MonoBehaviour
 
     public void GeneratorPlatformer()
     {
-        if (!characterController.Dead())
+        if (!GameController.dead && !GameController.victory)
         {
             if (!spawnPlatform)
             {

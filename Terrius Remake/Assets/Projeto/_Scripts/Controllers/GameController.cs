@@ -17,6 +17,11 @@ public class GameController : MonoBehaviour
 
         Load();
         LoadPersons();
+
+        dead = false;
+        victory = false;
+
+        audioSource.GetComponent<AudioSource>();
     }
     [HideInInspector] public int Coins;
     [HideInInspector] public int Points;
@@ -36,6 +41,14 @@ public class GameController : MonoBehaviour
     [Header("Personagens")]
     public List<Persons> personagens = new();
     public RuntimeAnimatorController anim_silhouette;
+
+    [Header("Statics")]
+    public static bool victory { get; set; }
+    public static bool dead { get; set; }
+
+    public static int trilha { get; set; }
+
+    public AudioSource audioSource;
 
 
     void LoadPersons()
@@ -74,8 +87,20 @@ public class GameController : MonoBehaviour
 
     public void Dead()
     {
-        CharacterController.dead = true;
+        dead = true;
         FindFirstObjectByType<CharacterController>().Dead();
+    }
+
+    public void Victory()
+    {
+        victory = true;
+        FindFirstObjectByType<CharacterController>().gameObject.SetActive(false);
+    }
+
+    public void PlayAudio(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 
     #region Payment

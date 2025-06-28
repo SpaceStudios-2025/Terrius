@@ -6,7 +6,7 @@ public class PlatformController : MonoBehaviour
     private bool spawn;
     void LateUpdate()
     {
-        if (!FindFirstObjectByType<CharacterController>().Dead() && PlanetaController.gamestart)
+        if (!GameController.dead && !GameController.victory && PlanetaController.gamestart)
         {
             transform.position += (Vector3)Vector2.left * speed * Time.deltaTime;
 

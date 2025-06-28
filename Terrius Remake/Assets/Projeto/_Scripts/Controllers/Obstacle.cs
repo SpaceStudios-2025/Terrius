@@ -10,6 +10,14 @@ public class Obstacle : MonoBehaviour
 
     private bool dead = false;
 
+    [Space]
+    public Obstaculos type;
+
+    public int platform;
+
+    [Space]
+    [SerializeField] private AudioClip soundCoin;
+
     void Start()
     {
         speed = Random.Range(minSpeed, maxSpeed);
@@ -18,23 +26,45 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
-        if (!FindFirstObjectByType<CharacterController>().Dead())
+        if (PlanetaController.gamestart)
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-
-            if (transform.position.x < FindFirstObjectByType<ObstaclesManager>().max_x) Destroy(gameObject);
-        }
-        else
-        {
-            if (GetComponent<Animator>())
+            if (!GameController.dead)
             {
-                if (!dead)
+                if (!GameController.victory) Move();
+                else if (GameController.victory && type == Obstaculos.obstaculoAlto) Move();
+            }
+            else
+            {
+                if (GetComponent<Animator>())
                 {
-                    GetComponent<Animator>().SetTrigger("dead");
-                    GetComponent<Rigidbody2D>().gravityScale = 1f;
-                    GetComponent<PolygonCollider2D>().isTrigger = false;
-                    dead = true;
+                    if (!dead)
+                    {
+                        GetComponent<Animator>().SetTrigger("dead");
+                        GetComponent<Rigidbody2D>().gravityScale = 1f;
+                        GetComponent<PolygonCollider2D>().isTrigger = false;
+                        dead = true;
+                    }
                 }
+            }
+        }
+    }
+
+    void Move()
+    {
+        transform.position += Vector3.left * speed * Time.deltaTime;
+        if (transform.position.x < FindFirstObjectByType<ObstaclesManager>().max_x) Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && type == Obstaculos.Coin)
+        {
+            if (platform == GameController.trilha)
+            {
+                //Coins ++;
+                PlanetaController.instance.AddCoins();
+                GameController.current.PlayAudio(soundCoin);
+                Destroy(gameObject);
             }
         }
     }
