@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4971316117476924834}
   - component: {fileID: 6487783482783973843}
   - component: {fileID: 532837999475181525}
-  - component: {fileID: 8285109921370953084}
   - component: {fileID: 2485727639772124467}
+  - component: {fileID: -9155408483759871158}
+  - component: {fileID: -2897174010064785918}
   m_Layer: 0
   m_Name: Moeda
   m_TagString: coin
@@ -112,8 +113,52 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &8285109921370953084
-CircleCollider2D:
+--- !u!114 &2485727639772124467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735228807832633297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fbdc53dcf581d4faa461fb71ed7f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 1
+  maxSpeed: 1
+  type: 2
+  platform: 0
+  soundCoin: {fileID: 8300000, guid: 9ca96503d05ffb6408be422577d98482, type: 3}
+--- !u!50 &-9155408483759871158
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735228807832633297}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &-2897174010064785918
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,26 +187,27 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.09}
-  m_Radius: 0.09
---- !u!114 &2485727639772124467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735228807832633297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8fbdc53dcf581d4faa461fb71ed7f0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSpeed: 1
-  maxSpeed: 1
-  type: 2
-  platform: 0
-  soundCoin: {fileID: 8300000, guid: 9ca96503d05ffb6408be422577d98482, type: 3}
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.18, y: 0.18}
+    newSize: {x: 0.21428572, y: 0.21428572}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.08, y: 0.17999999}
+      - {x: -0.089999996, y: 0.16}
+      - {x: -0.089999996, y: 0.02}
+      - {x: -0.07, y: 0}
+      - {x: 0.08, y: 0}
+      - {x: 0.089999996, y: 0.02}
+      - {x: 0.089999996, y: 0.17999999}
+  m_UseDelaunayMesh: 0

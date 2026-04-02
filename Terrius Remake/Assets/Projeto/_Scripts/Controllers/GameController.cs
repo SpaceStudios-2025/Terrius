@@ -20,8 +20,6 @@ public class GameController : MonoBehaviour
 
         dead = false;
         victory = false;
-
-        audioSource.GetComponent<AudioSource>();
     }
     [HideInInspector] public int Coins;
     [HideInInspector] public int Points;
